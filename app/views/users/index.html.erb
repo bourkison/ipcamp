@@ -2,6 +2,6 @@
 
 <ul>
   <% @users.each do |u| %>
-    <li><%= u.firstname %></li>
+    <li><%= link_to u.username, u %></li>
   <% end %>
 </ul>
