@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :check_if_logged_in, :only => [:edit]
 
-	
+
   def index
     @users = User.all
     render :index
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :dob, :country, :credit_card_no, :name_on_card, :expiry, :ccv, :email, :password, :password_confirmation)
+    params.require(:user).permit(:firstname, :lastname, :dob, :country, :credit_card_no, :name_on_card, :expiry, :ccv, :email, :password, :password_confirmation, :username)
   end
 
 end

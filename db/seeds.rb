@@ -36,7 +36,7 @@ u2.listings << l2
 u3.comments << c1
 l1.comments << c1
 
-u3.purchase = p1
+u3.purchases << p1
 l2.purchase = p1
 
 u3.bids << b1

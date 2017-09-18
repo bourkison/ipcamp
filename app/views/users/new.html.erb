@@ -12,14 +12,52 @@
 
 <%= form_for @user do |f| %>
   <fieldset>
-    <%= f.label :firstname %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :firstname, "First Name" %>
     <%= f.text_field :firstname %>
   </fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
-  <fieldset></fieldset>
+  <fieldset>
+    <%= f.label :lastname, "Last Name" %>
+    <%= f.text_field :lastname %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :dob %>
+    <%= f.date_field :dob %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :name_on_card %>
+    <%= f.text_field :name_on_card %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :credit_card_no %>
+    <%= f.text_field :credit_card_no %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :expiry, "Expiry (MM/YY)" %>
+    <%= f.text_field :expiry %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :ccv %>
+    <%= f.text_field :ccv %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </fieldset>
+
 <% end %>

@@ -19,9 +19,10 @@
 
 class User < ApplicationRecord
 	validates :email, :presence => true, :uniqueness => true
-	
+
 	has_many :listings
 	has_many :purchases
 	has_many :comments
+	has_many :bids
 	has_secure_password
 end
