@@ -18,6 +18,8 @@
 #
 
 class User < ApplicationRecord
+	validates :email, :presence => true, :uniqueness => true
+	
 	has_many :listings
 	has_many :purchases
 	has_many :comments
