@@ -1,3 +1,13 @@
 <h1><%= @user.username %>'s Profile</h1>
 
-<p><i>Welcome, <%= @user.firstname %></i></p>
+<p>Welcome, <i><%= @user.firstname %></i></p>
+
+
+<ul>
+  <% @user.listings.each do |l| %>
+    <li><%= link_to l.name, l %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit Profile", edit_user_path %>
+<%= link_to "Delete Profile - THIS WILL NOT BE HERE IN FINAL VERSION", user_path, :method => 'delete', :data => {:confirm => 'Are you sure you wish to delete your account? It cannot be reversed.'} %>

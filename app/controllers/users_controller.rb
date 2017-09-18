@@ -21,6 +21,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find params[:id]
+    User.destroy user.id
+
+    redirect_to root_path
+  end
+
+  def edit
+    @user = User.find paraams[:id]
+  end
+
   def show
     @user = User.find params[:id]
     render :show
