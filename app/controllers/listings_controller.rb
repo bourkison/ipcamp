@@ -4,6 +4,6 @@ class ListingsController < ApplicationController
 		@user = @listing.user_id
 
 
-		# @bids = Bid.find :all, :conditions => 
+		@bids = @listing.bids
 	end
 end

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root :to => "users#index"
   resources :users
 	resources :listings
+	get '/login' => 'session#new'
+	get '/login' => 'session#destroy'
 end

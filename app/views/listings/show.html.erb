@@ -2,3 +2,15 @@
 
 <%= image_tag @listing.photo %>
 <p><%= @listing.description %></p>
+
+<div class="bid-container">
+	<%= @listing.bids.each do |b| %>
+
+		<div class="bid-indiv">
+			<a href="/users/<%= b.user.id %>">
+				<%= b.user.username %>
+			</a>
+			<div><%= b.amount %></div>
+		</div>
+	<% end %>
+</div>
