@@ -30,10 +30,23 @@ p1 = Purchase.create :amount => 500
 
 ### Associtation ###
 
-l1.user_id << u1
-l2.user_id << u2
-c1.user_id << u3
-c1.listing_id << l1
-p1.user_id << u3
-b1.listing_id << l2
-b1.user_id << u3
+u1.listings << l1
+u2.listings << l2
+
+u3.comments << c1
+l1.comments << c1
+
+u3.purchase = p1
+l2.purchase = p1
+
+u3.bids << b1
+l2.bids << b1
+
+
+# l1.user_id << u1
+# l2.user_id << u2
+# c1.user_id << u3
+# c1.listing_id << l1
+# p1.user_id << u3
+# b1.listing_id << l2
+# b1.user_id << u3
