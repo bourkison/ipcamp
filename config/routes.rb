@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :users
 	resources :listings
 	get '/login' => 'session#new'
-	get '/login' => 'session#destroy'
+	delete '/login' => 'session#destroy'
+	post '/login' => 'session#create'
 end
