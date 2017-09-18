@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create :firstname => 'Nicholas', :lastname => 'Johnson', :email => 'nicholas@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5555', :name_on_card => 'Nicholas Johnson', :expiry => '12/20', :ccv => '555'
+u1 = User.create :firstname => 'Nicholas', :lastname => 'Johnson', :username => 'bigbird420', :email => 'nicholas@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5555', :name_on_card => 'Nicholas Johnson', :expiry => '12/20', :ccv => '555'
 
-u2 = User.create :firstname => 'Harrison', :lastname => 'Bourke', :email => 'harrison@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5554', :name_on_card => 'Harrison Bourke', :expiry => '12/22', :ccv => '554'
+u2 = User.create :firstname => 'Harrison', :lastname => 'Bourke', :username => 'bourkison', :email => 'harrison@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5554', :name_on_card => 'Harrison Bourke', :expiry => '12/22', :ccv => '554'
 
-u3 = User.create :firstname => 'Matt', :lastname => 'Edge', :email => 'edge@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5556', :name_on_card => 'Matt Edge', :expiry => '12/23', :ccv => '556'
+u3 = User.create :firstname => 'Matt', :lastname => 'Edge', :username => 'edgy', :email => 'edge@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5556', :name_on_card => 'Matt Edge', :expiry => '12/23', :ccv => '556'
 
 Listing.destroy_all
 l1 = Listing.create :name => 'I wish I was at home listening to Swans', :description => 'for sale I have here today this premium content I WISH I WAS AT HOME LISTENING TO SWANS. several thousand strong audience. reasonable price. strong meme repertoire. happy to answer any questions', :photo => 'http://38.media.tumblr.com/03f5245a2137ac023fc3c0e70a754761/tumblr_nb8qmutiLP1qkg8nxo1_500.jpg'
