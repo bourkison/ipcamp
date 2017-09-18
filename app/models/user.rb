@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  firstname       :text
+#  lastname        :text
+#  dob             :date
+#  country         :text
+#  credit_card_no  :text
+#  name_on_card    :text
+#  expiry          :text
+#  ccv             :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  email           :text
+#  password_digest :string
+#
+
 class User < ApplicationRecord
 	has_many :listings
 	has_many :purchases
