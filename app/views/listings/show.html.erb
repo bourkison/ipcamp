@@ -18,6 +18,10 @@
 	<% end %>
 </div>
 
+<% if flash[:error].present? %>
+	<p><%= flash[:error] %></p>
+<% end %>
+
 <div class="form-container">
 	<% if @bids.last.present? %>
 		<p>Highest bid is: <%= @bids.last.amount %></p>

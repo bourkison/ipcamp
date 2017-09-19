@@ -1,17 +1,17 @@
 class BidsController < ApplicationController
 	def create
+		@bid = Bid.new bid_params
+		listing = Listing.find params[:listing_id]
 
-
-			if @bid <= listing.bids.last
-				@bid = Bid.new bid_params
-				@current_user.bids << @bid
-				listing = Listing.find params[:listing_id]
-				listing.bids << @bid
-				redirect_to request.referer
-			else
-			  redirect_to request.referer
-			end
-
+		if @bid.amount > listing.bids.last.amount
+			@current_user.bids << @bid
+			listing.bids << @bid
+			redirect_to request.referer
+		else
+			flash[:error] = "Error, the bid must be greater than the highest bid."
+			# Bid.destroy @bid.id
+		  redirect_to request.referer
+		end
 	end
 
 

@@ -1,4 +1,9 @@
 class SessionController < ApplicationController
+  def index
+    @listings = Listing.all
+    render :index
+  end
+
   def new
   end
 

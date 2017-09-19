@@ -1,0 +1,14 @@
+<!-- THIS IS THE HOME PAGE -->
+<h1>IPCamp</h1>
+
+<% if @current_user.present? %>
+  <p>Welcome back <%= @current_user.username %></p>
+<% else %>
+  <p><%= link_to "Login", login_path %> or <%= link_to "Sign Up", new_user_path %> to sell or buy intellectual property!</p>
+<% end %>
+
+<ul>
+  <% @listings.each do |l| %>
+    <li><%= link_to l.name, l %></li>
+  <% end %>
+</ul>

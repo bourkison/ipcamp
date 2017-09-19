@@ -41,12 +41,3 @@ l2.purchase = p1
 
 u3.bids << b1
 l2.bids << b1
-
-
-# l1.user_id << u1
-# l2.user_id << u2
-# c1.user_id << u3
-# c1.listing_id << l1
-# p1.user_id << u3
-# b1.listing_id << l2
-# b1.user_id << u3
