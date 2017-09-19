@@ -6,7 +6,7 @@
 <div class="bid-container">
 	<% if @bids.nil? %>
 		<div>
-			Eat a dick
+			nada
 		</div>
 	<% else %>
 		<% @bids.each do |b| %>
@@ -23,12 +23,13 @@
 <% end %>
 
 <div class="form-container">
+	<p>Highest bid is: <%= @bids.last %></p>
+	<%= form_for @bid, :remote => true do |b| %>
 	<% if @bids.last.present? %>
 		<p>Highest bid is: <%= @bids.last.amount %></p>
 	<% else %>
 		<p><i>There are no bids on this listing yet.</i></p>
 	<% end %>
-	<%= form_for @bid do |b| %>
 	<%= hidden_field_tag :listing_id, @listing.id %>
 	<fieldset>
 		<%= b.label :amount, "Enter an amount" %>
@@ -40,7 +41,7 @@
 </div>
 
 <div class="comment-form-container">
-	<%= form_for @comment do |f| %>
+	<%= form_for @comment, :remote => true do |f| %>
 	<div class="form-group">
 		<%= hidden_field_tag :listing_id, @listing.id %>
 		<%= f.text_area :content, placeholder: "Add a comment" %>
