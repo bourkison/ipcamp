@@ -4,13 +4,15 @@
 <p><%= @listing.description %></p>
 
 <div class="bid-container">
-	<%= @listing.bids.each do |b| %>
+	<% @listing.bids.each do |b| %>
 
 		<div class="bid-indiv">
-			<a href="/users/<%= b.user.id %>">
-				<%= b.user.username %>
-			</a>
+			<%= link_to b.user.username, b.user %>
 			<div><%= b.amount %></div>
 		</div>
 	<% end %>
 </div>
+
+<% if @current_user == @listing.user %>
+	<%= link_to "Delete Listing", @listing, :method => 'delete' %>
+<% end %>

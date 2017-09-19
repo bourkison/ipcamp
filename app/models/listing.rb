@@ -12,7 +12,7 @@
 #
 
 class Listing < ApplicationRecord
-	belongs_to :user
+	belongs_to :user, :optional => true
 	has_many :bids
 	has_many :comments
 	has_one :purchase

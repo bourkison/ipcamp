@@ -1,0 +1,27 @@
+<% if @current_user.present? %>
+
+  <%= form_for @listing do |f| %>
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :photo %>
+      <%= f.url_field :photo %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :url %>
+      <%= f.url_field :url %>
+    </fieldset>
+
+    <%= f.submit "Create Listing!" %>
+  <% end %>
+
+<% else %>
+  <p>You must be logged in to add a listing</p>
+  <p>Log in <%= link_to "here", login_path %></p>
+<% end %>
