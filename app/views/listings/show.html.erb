@@ -19,7 +19,9 @@
 </div>
 
 <div class="form-container">
+	<p>Highest bid is: <%= @bids.last %></p>
 	<%= form_for @bid do |b| %>
+	<%= hidden_field_tag :listing_id, @listing.id %>
 	<fieldset>
 		<%= b.label :amount, "Enter an amount" %>
 		<%= b.text_field :amount %>
