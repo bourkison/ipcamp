@@ -10,7 +10,6 @@ class BidsController < ApplicationController
 				redirect_to request.referer
 			else
 			  redirect_to request.referer
-			else
 			end
 
 	end
