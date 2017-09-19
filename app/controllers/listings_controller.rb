@@ -7,9 +7,14 @@ class ListingsController < ApplicationController
 		render :show
 	end
 
+<<<<<<< HEAD
 	def new
 		@listing = Listing.new
 		render :new
+=======
+		@bids = @listing.bids
+		@bid = Bid.new
+>>>>>>> 99fa3fca3aacabe0d13401f2a77fbd0935933206
 	end
 
 	def create

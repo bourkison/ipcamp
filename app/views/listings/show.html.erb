@@ -13,6 +13,18 @@
 	<% end %>
 </div>
 
+<div class="form-container">
+	<%= form_for @bid do |b| %>
+	<fieldset>
+		<%= b.label :amount, "Enter an amount" %>
+		<%= b.text_field :amount %>
+	</fieldset>
+
+	<%= b.submit "Place bid!" %>
+	<% end %>
+</div>
+
+
 <% if @current_user == @listing.user %>
 	<%= link_to "Delete Listing", @listing, :method => 'delete' %>
 <% end %>

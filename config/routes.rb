@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to => "users#index"
   resources :users
 	resources :listings
+	resources :bids
 	get '/login' => 'session#new'
 	delete '/login' => 'session#destroy'
 	post '/login' => 'session#create'
