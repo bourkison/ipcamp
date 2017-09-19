@@ -1,15 +1,25 @@
 class BidsController < ApplicationController
-	def new
-		@bid = Bid.new
-		@bid.user_id = @current_user
-		@bid.save
-	end
 	def create
-		@bid = Bid.new
-		@bid.user_id = @current_user
-		@bid.save
-		render listings_path
+
+
+			if @bid <= listing.bids.last
+				@bid = Bid.new bid_params
+				@current_user.bids << @bid
+				listing = Listing.find params[:listing_id]
+				listing.bids << @bid
+				redirect_to request.referer
+			else
+			  redirect_to request.referer
+			else
+			end
+
 	end
 
 
+
+	private
+
+	def bid_params
+		params.require(:bid).permit(:amount)
+	end
 end
