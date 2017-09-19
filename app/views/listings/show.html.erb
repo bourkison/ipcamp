@@ -5,28 +5,27 @@
 
 <div class="bid-container">
 	<% if @bids.nil? %>
-	<div>
-		Eat a dick
-	</div>
+		<div>
+			Eat a dick
+		</div>
 	<% else %>
 		<% @bids.each do |b| %>
 			<div class="bid-indiv">
-				<a href="/users/<%= b.user.id %>">
-					<%= b.user.username %>
-				</a>
+				<%= link_to b.user.username, b.user %>
 				<div><%= b.amount %></div>
 			</div>
 		<% end %>
 	<% end %>
 </div>
+
 <div class="form-container">
 	<%= form_for @bid do |b| %>
-		<fieldset>
-			<%= b.label :amount, "Enter an amount" %>
-			<%= b.text_field :amount %>
-		</fieldset>
+	<fieldset>
+		<%= b.label :amount, "Enter an amount" %>
+		<%= b.text_field :amount %>
+	</fieldset>
 
-		<%= b.submit "Place bid!" %>
+	<%= b.submit "Place bid!" %>
 	<% end %>
 </div>
 
@@ -37,7 +36,7 @@
 		<%= f.text_area :content, placeholder: "Add a comment" %>
 		</div>
 		<%= f.submit class: "btn btn-primary" %>
-		<% end %>
+	<% end %>
 </div>
 <div class="comments-container">
 	<% if @comments.nil? %>
@@ -55,3 +54,7 @@
 		<% end %>
 	<% end %>
 </div>
+
+<% if @current_user == @listing.user %>
+	<%= link_to "Delete Listing", @listing, :method => 'delete' %>
+<% end %>
