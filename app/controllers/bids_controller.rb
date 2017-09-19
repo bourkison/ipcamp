@@ -8,6 +8,7 @@ class BidsController < ApplicationController
 		@bid = Bid.new
 		@bid.user_id = @current_user
 		@bid.save
+		render listings_path
 	end
 
 

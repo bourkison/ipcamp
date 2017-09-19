@@ -4,7 +4,6 @@ class ListingsController < ApplicationController
 		@user = @listing.user_id
 		@comments = @listing.comments
 		@comment = Comment.new
-
 		@bids = @listing.bids
 		@bid = Bid.new
 	end
