@@ -19,7 +19,11 @@
 </div>
 
 <div class="form-container">
-	<p>Highest bid is: <%= @bids.last %></p>
+	<% if @bids.last.present? %>
+		<p>Highest bid is: <%= @bids.last.amount %></p>
+	<% else %>
+		<p><i>There are no bids on this listing yet.</i></p>
+	<% end %>
 	<%= form_for @bid do |b| %>
 	<%= hidden_field_tag :listing_id, @listing.id %>
 	<fieldset>
@@ -62,3 +66,25 @@
 		<%= link_to "Delete Listing", @listing, :method => 'delete', :data => {:confirm => 'Are you sure you wish to delete this listing?'} %>
 	<% end %>
 <% end %>
+
+
+
+<!-- First check if the expiry date is within 2 minutes, if so display the amount in seconds. -->
+<% if ((@listing.expiry - @listing.created_at) / 60 ) < 2 %>
+	<p><%= (@listing.expiry - @listing.created_at).to_i %> seconds remaining</p>
+
+<!-- Now check if its sooner than 2 hours, if so display in minutes -->
+<% elsif ((@listing.expiry - @listing.created_at) / 60 / 60 ) < 2 %>
+	<p><%= ((@listing.expiry - @listing.created_at) / 60).to_i %> minutes remaining</p>
+
+
+<!-- Next check if it's within a day, if so display in hours -->
+<% elsif ((@listing.expiry - @listing.created_at) / 60 / 60 / 24) < 1 %>
+	<p><%= ((@listing.expiry - @listing.created_at) / 60 / 60 ).to_i %> hours remaining </p>
+
+<!-- Else set it in days. -->
+<% else %>
+	<p><%= ((@listing.expiry - @listing.created_at) / 60 / 60 / 24).to_i %> days remaining </p>
+
+<% end %>
+<p>Expiry: <%= @listing.expiry.strftime("%A, %e %B %H:%M %p %Z") %></p>

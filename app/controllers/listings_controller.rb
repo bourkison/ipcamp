@@ -18,6 +18,8 @@ class ListingsController < ApplicationController
 	def create
 		@listing = Listing.new listing_params
 		@current_user.listings << @listing
+		expiry = @listing.created_at + 1.weeks
+		@listing.expiry = expiry
 
 		if @listing.save
 			redirect_to @listing
@@ -35,7 +37,7 @@ class ListingsController < ApplicationController
 
 	private
 	def listing_params
-		params.require(:listing).permit(:name, :description, :url, :photo)
+		params.require(:listing).permit(:name, :description, :url, :photo, :expiry)
 	end
 
 end
