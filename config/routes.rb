@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
 	resources :listings
 	resources :bids
+	resources :comments
 	get '/login' => 'session#new'
 	delete '/login' => 'session#destroy'
 	post '/login' => 'session#create'

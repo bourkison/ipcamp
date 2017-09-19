@@ -2,19 +2,17 @@ class ListingsController < ApplicationController
 	def show
 		@listing = Listing.find params[:id]
 		@user = @listing.user_id
+		@bid = Bid.new
 		@bids = @listing.bids
+		@comments = @listing.comments
+		@comment = Comment.new
 
 		render :show
 	end
 
-<<<<<<< HEAD
 	def new
 		@listing = Listing.new
 		render :new
-=======
-		@bids = @listing.bids
-		@bid = Bid.new
->>>>>>> 99fa3fca3aacabe0d13401f2a77fbd0935933206
 	end
 
 	def create
