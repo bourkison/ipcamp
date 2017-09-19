@@ -56,5 +56,7 @@
 </div>
 
 <% if @current_user == @listing.user %>
-	<%= link_to "Delete Listing", @listing, :method => 'delete' %>
+	<% unless @listing.bids.present? %>
+		<%= link_to "Delete Listing", @listing, :method => 'delete', :data => {:confirm => 'Are you sure you wish to delete this listing?'} %>
+	<% end %>
 <% end %>
