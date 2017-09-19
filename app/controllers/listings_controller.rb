@@ -5,5 +5,6 @@ class ListingsController < ApplicationController
 
 
 		@bids = @listing.bids
+		@bid = Bid.new
 	end
 end
