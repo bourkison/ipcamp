@@ -4,14 +4,19 @@
 <p><%= @listing.description %></p>
 
 <div class="bid-container">
-	<%= @listing.bids.each do |b| %>
-
-		<div class="bid-indiv">
-			<a href="/users/<%= b.user.id %>">
-				<%= b.user.username %>
-			</a>
-			<div><%= b.amount %></div>
-		</div>
+	<% if @bids.nil? %>
+	<div>
+		Eat a dick
+	</div>
+	<% else %>
+		<% @bids.each do |b| %>
+			<div class="bid-indiv">
+				<a href="/users/<%= b.user.id %>">
+					<%= b.user.username %>
+				</a>
+				<div><%= b.amount %></div>
+			</div>
+		<% end %>
 	<% end %>
 </div>
 <div class="form-container">
@@ -23,4 +28,13 @@
 
 		<%= b.submit "Place bid!" %>
 	<% end %>
+</div>
+
+<div class="comments-container">
+	<%= form_for @comment do |f| %>
+	<div class="form-group">
+		<%= f.text_area :content, placeholder: "Add a comment" %>
+		</div>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
 </div>
