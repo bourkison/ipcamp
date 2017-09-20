@@ -7,4 +7,11 @@ class FollowsController < ApplicationController
     listing.users << @current_user
   end
 
+  def destroy
+    follow = @current_user.follows.find_by listing_id: params[:id]
+    follow.destroy
+
+    redirect_to request.referer
+  end
+
 end

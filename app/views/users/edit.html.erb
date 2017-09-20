@@ -46,3 +46,5 @@
 <%= f.submit "Confirm Changes" %>
 
 <% end %>
+
+<%= link_to "Delete Profile", user_path, :method => 'delete', :data => {:confirm => 'Are you sure you wish to delete your account? It cannot be reversed.'} %>
