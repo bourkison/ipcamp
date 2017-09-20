@@ -1,4 +1,14 @@
 class ListingsController < ApplicationController
+	def index
+		@listings = Listing.all
+
+		if params[:search]
+			@listings = Listing.search(params[:search]).order("expiry DESC")
+		else
+			@listings = Listing.all.order("expiry DESC")
+		end
+	end
+
 	def show
 		@listing = Listing.find params[:id]
 		@user = @listing.user_id

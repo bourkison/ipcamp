@@ -32,7 +32,7 @@
 </fieldset>
 <fieldset>
   <%= f.label :credit_card_no %>
-  <%= f.text_field :credit_card_no %>
+  <%= f.text_field :credit_card_no, :class => 'cc' %>
 </fieldset>
 <fieldset>
   <%= f.label :expiry, "Expiry (MM/YY)" %>
@@ -40,7 +40,7 @@
 </fieldset>
 <fieldset>
   <%= f.label :ccv, "CCV" %>
-  <%= f.text_field :ccv %>
+  <%= f.text_field :ccv, :class => 'cc' %>
 </fieldset>
 
 <%= f.submit "Confirm Changes" %>

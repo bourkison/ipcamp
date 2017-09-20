@@ -16,4 +16,8 @@ class Listing < ApplicationRecord
 	has_many :bids
 	has_many :comments
 	has_one :purchase
+
+	def self.search(search)
+		Listing.where("name ILIKE ?", "%#{search}%")
+	end
 end

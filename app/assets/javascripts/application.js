@@ -16,4 +16,12 @@
 
 $(document).ready(function () {
 	$(function(){ $(document).foundation(); });
+
+	$('.cc').attr('type', 'password');
+
+	$('.cc').focus(function() {
+		this.type = 'text';
+	}).blur(function() {
+		this.type = 'password';
+	})
 })

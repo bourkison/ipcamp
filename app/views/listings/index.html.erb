@@ -1,0 +1,7 @@
+<h3>Search results</h3>
+
+<ul>
+  <% @listings.each do |l| %>
+    <li><%= link_to l.name, l %></li>
+  <% end %>
+</ul>
