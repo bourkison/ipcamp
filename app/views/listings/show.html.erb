@@ -92,3 +92,10 @@
 
 <% end %>
 <p>Expiry: <%= @listing.expiry.strftime("%A, %e %B %H:%M %p %Z") %></p>
+
+<% if @current_user.present? %>
+	<%= form_for @follow do |f| %>
+		<%= hidden_field_tag :listing_id, @listing.id %>
+		<%= f.button "Follow Listing" %>
+	<% end %>
+<% end %>

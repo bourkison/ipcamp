@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
 	end
 
 	def show
+		@follow = Follow.new
 		@listing = Listing.find params[:id]
 		@user = @listing.user_id
 		@bid = Bid.new

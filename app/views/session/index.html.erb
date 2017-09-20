@@ -8,7 +8,14 @@
 <% end %>
 
 <ul>
-  <% @listings.each do |l| %>
-    <li><%= link_to l.name, l %></li>
+  <% if @current_user.present? %>
+    <% if @current_user.follows.present? %>
+      <p><i>Followed listings: </i></p>
+      <% @current_user.follows.each do |follow| %>
+        <li><%= link_to follow.listing.name, follow.listing %></li>
+      <% end %>
+    <% else %>
+      <p><i>You have no followed listings. Search a listing and click follow to have some.</i></p>
+    <% end %>
   <% end %>
 </ul>

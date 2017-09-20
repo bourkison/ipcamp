@@ -24,5 +24,7 @@ class User < ApplicationRecord
 	has_many :purchases
 	has_many :comments
 	has_many :bids
+
+	has_many :follows
 	has_secure_password
 end
