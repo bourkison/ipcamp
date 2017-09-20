@@ -23,7 +23,6 @@
 <% end %>
 
 <div class="form-container">
-	<p>Highest bid is: <%= @bids.last %></p>
 	<%= form_for @bid, :remote => true do |b| %>
 	<% if @bids.last.present? %>
 		<p>Highest bid is: <%= @bids.last.amount %></p>
