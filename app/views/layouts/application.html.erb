@@ -9,9 +9,38 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '357351441386259',
+		      cookie     : true,
+		      xfbml      : true,
+		      version    : 'v2.10'
+		    });
+		    FB.AppEvents.logPageView();
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=152748771981103";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
 		<%= link_to "Home", root_path %>
     <% if @current_user.present? %>
       <%= link_to "Your Profile", @current_user %>
@@ -24,5 +53,6 @@
     <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
+
   </body>
 </html>
