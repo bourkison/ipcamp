@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
 
 
 		render :json => {
-			:comments => listing.comments.to_json(:include => :user)
+			:comments => listing.comments.to_json(:include => :user),
+			:bids => listing.bids.to_json(:include => :user)
 		}
 	end
 

@@ -4,17 +4,15 @@
 <p><%= @listing.description %></p>
 
 <div class="bid-container">
-	<% if @bids.nil? %>
-		<div>
-			nada
-		</div>
-	<% else %>
+	<% if @bids.last.present? %>
 		<% @bids.each do |b| %>
 			<div class="bid-indiv">
 				<%= link_to b.user.username, b.user %>
 				<div><%= b.amount %></div>
 			</div>
 		<% end %>
+	<% else %>
+		<p><i>There are no bids on this listing... yet.</i></p>
 	<% end %>
 </div>
 
@@ -24,11 +22,6 @@
 
 <div class="form-container">
 	<%= form_for @bid, :remote => true do |b| %>
-	<% if @bids.last.present? %>
-		<p>Highest bid is: <%= @bids.last.amount %></p>
-	<% else %>
-		<p><i>There are no bids on this listing yet.</i></p>
-	<% end %>
 	<%= hidden_field_tag :listing_id, @listing.id %>
 	<fieldset>
 		<%= b.label :amount, "Enter an amount" %>
@@ -49,10 +42,8 @@
 	<% end %>
 </div>
 <div class="comments-container">
-	<% if @comments.nil? %>
-	<div>
-		Eat a dick
-	</div>
+	<% if !@comments[0].present? %>
+		<p><i>There are no comments yet</i></p>
 	<% else %>
 		<ul id="comments">
 			<% @comments.each do |b| %>
