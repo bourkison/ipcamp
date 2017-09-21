@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 	resources :bids
 	resources :comments
   resources :follows
+
 	get '/login' => 'session#new'
 	delete '/login' => 'session#destroy'
 	post '/login' => 'session#create'
+
+  get '/comments_for/:id' => 'comments#comments_for'
 end

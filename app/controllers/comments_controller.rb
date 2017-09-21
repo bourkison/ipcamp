@@ -7,6 +7,15 @@ class CommentsController < ApplicationController
 		redirect_to request.referer
 	end
 
+	def comments_for
+		listing = Listing.find params[:id]
+
+
+		render :json => {
+			:comments => listing.comments.to_json(:include => :user)
+		}
+	end
+
 
 
 

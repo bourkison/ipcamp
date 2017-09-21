@@ -40,7 +40,7 @@
 </div>
 
 <div class="comment-form-container">
-	<%= form_for @comment, :remote => true do |f| %>
+	<%= form_for @comment do |f| %>
 	<div class="form-group">
 		<%= hidden_field_tag :listing_id, @listing.id %>
 		<%= f.text_area :content, placeholder: "Add a comment" %>
@@ -54,14 +54,11 @@
 		Eat a dick
 	</div>
 	<% else %>
-		<% @comments.each do |b| %>
-			<div class="comment-indiv">
-				<a href="/users/<%= b.user.id %>">
-					<%= b.user.username %>
-				</a>
-				<div><%= b.content %></div>
-			</div>
-		<% end %>
+		<ul id="comments">
+			<% @comments.each do |b| %>
+				<li><%= b.content %> | <%= link_to b.user.username, b.user %></li>
+			<% end %>
+		</ul>
 	<% end %>
 </div>
 
