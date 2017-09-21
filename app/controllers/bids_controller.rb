@@ -3,7 +3,9 @@ class BidsController < ApplicationController
 		@bid = Bid.new bid_params
 		listing = Listing.find params[:listing_id]
 
-		if @bid.amount > listing.bids.last.amount
+		highestBid = listing.bids.pluck(:amount).max || 0
+
+		if @bid.amount > highestBid
 			@current_user.bids << @bid
 			listing.bids << @bid
 			redirect_to request.referer

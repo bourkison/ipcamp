@@ -5,12 +5,10 @@
 
 <div class="bid-container">
 	<% if @bids.last.present? %>
-		<% @bids.each do |b| %>
-			<div class="bid-indiv">
-				<%= link_to b.user.username, b.user %>
-				<div><%= b.amount %></div>
-			</div>
-		<% end %>
+		<div class="bid-indiv">
+			<%= link_to @bids.last.user.username, @bids.last.user %>
+			<div><%= @bids.last.amount %></div>
+		</div>
 	<% else %>
 		<p><i>There are no bids on this listing... yet.</i></p>
 	<% end %>
@@ -21,7 +19,7 @@
 <% end %>
 
 <div class="form-container">
-	<%= form_for @bid, :remote => true do |b| %>
+	<%= form_for @bid do |b| %>
 	<%= hidden_field_tag :listing_id, @listing.id %>
 	<fieldset>
 		<%= b.label :amount, "Enter an amount" %>

@@ -22,7 +22,7 @@ $(document).ready(function () {
         console.log("BIDS:", bids);
         if (bids.length > 0) {
           let highestBid = bids[bids.length - 1];
-
+          console.log("SETTING");
           $('.bid-indiv').html('<a href=\'/users/' + highestBid.user.id + '\'>' + highestBid.user.username + '</a><div>' + highestBid.amount + '</div>');
         }
 
