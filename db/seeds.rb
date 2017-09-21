@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create :firstname => 'Nicholas', :lastname => 'Johnson', :username => 'bigbird420', :email => 'nicholas@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5555', :name_on_card => 'Nicholas Johnson', :expiry => '12/20', :ccv => '555'
+u1 = User.create :firstname => 'Nicholas', :lastname => 'Johnson', :username => 'bigbird420', :email => 'nickj.borntohula@gmail.com', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5555', :name_on_card => 'Nicholas Johnson', :expiry => '12/20', :ccv => '555'
 
 u2 = User.create :firstname => 'Harrison', :lastname => 'Bourke', :username => 'bourkison', :email => 'harrison@ga.co', :password => 'chicken', :country => 'Australia', :credit_card_no => '5555 5555 5555 5554', :name_on_card => 'Harrison Bourke', :expiry => '12/22', :ccv => '554'
 

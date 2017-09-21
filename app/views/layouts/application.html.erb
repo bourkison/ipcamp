@@ -56,6 +56,14 @@
 
       <%= submit_tag "Search", :name => nil, :id => 'search-button' %>
     <% end %>
+		<div id="user_nav">
+		  <% if @current_user %>
+		    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+		  <% if @authentication %>
+		    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+		  <% end %>
+			<% end %>
+		</div>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>

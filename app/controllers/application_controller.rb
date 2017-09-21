@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
 		redirect_to login_path unless @current_user.present?
 	end
 
+	def current_authentication
+		@authentication ||= Authentication.find authentication[:user_id] if authentication[:user_id]
+	end
+
 end
