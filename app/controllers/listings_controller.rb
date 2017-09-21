@@ -46,6 +46,10 @@ class ListingsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def update
+		puts "MADE TO CONTROLLER"
+	end
+
 	private
 	def listing_params
 		params.require(:listing).permit(:name, :description, :url, :photo, :expiry)
