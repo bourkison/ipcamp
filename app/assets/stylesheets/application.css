@@ -19,3 +19,14 @@
 #search-button {
   display: none;
 }
+
+body {
+    background-color: #ddd;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0px 15px;
+}
