@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def current_authentication
-		@authentication ||= Authentication.find authentication[:user_id] if authentication[:user_id]
+		@authentication = Authentication.find authentication[:user_id] if authentication[:user_id]
 	end
 
 end
