@@ -19,14 +19,16 @@
 
 class User < ApplicationRecord
 	validates :email, :presence => true, :uniqueness => true
-
 	has_many :listings
 	has_many :purchases
 	has_many :comments
 	has_many :bids
-
 	has_many :follows
 	has_many :authentications
-	
 	has_secure_password
+
+
+	def facebook
+		@facebook = Koala::Facebook::API.new(self.authentications.first.oauth_token)
+	end
 end

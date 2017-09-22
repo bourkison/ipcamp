@@ -50,4 +50,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:firstname, :lastname, :dob, :country, :credit_card_no, :name_on_card, :expiry, :ccv, :email, :password, :password_confirmation, :username)
   end
 
+
+
 end

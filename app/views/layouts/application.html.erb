@@ -57,12 +57,13 @@
       <%= submit_tag "Search", :name => nil, :id => 'search-button' %>
     <% end %>
 		<div id="user_nav">
-		  <% if @current_user %>
+		  <% if @current_user.present? && @current_user.authentications.first.nil? %>
 		    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-		  <% if @authentication %>
+			<% end %>
+		  <% if @current_user.authentications.first.present? %>
 		    <%= link_to "Sign out", signout_path, id: "sign_out" %>
 		  <% end %>
-			<% end %>
+
 		</div>
 
     <%= yield %>
